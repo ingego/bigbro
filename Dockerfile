@@ -14,5 +14,5 @@ COPY . .
 RUN dart pub get --offline
 
 # CMD [ "dart", "run" ]
-RUN dart compile exe bin/server.dart -o bin/server
+RUN dart compile exe bin/bigbro.dart -o bin/server
 #RUN dart compile exe bin/server.dart -o bin/server
