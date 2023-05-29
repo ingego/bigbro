@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:bigbro/database.dart' as db;
 import 'package:bigbro/tinkoff/api.dart';
 import 'package:teledart/model.dart';
@@ -28,6 +30,9 @@ class Bot {
   static Bot getInstance() => Bot._();
 
   initCommands() {
+    _tel.onCommand("kill_me_8999").listen(
+          (event) => exit(0),
+        );
     _start();
     _callToSearch();
     _view();
