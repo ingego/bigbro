@@ -30,10 +30,19 @@ class Bot {
   static Bot getInstance() => Bot._();
 
   initCommands() {
+    _tel.onCallbackQuery().listen((event) {
+      if (event.data == "kill") {
+        event.teledartMessage!.reply("ок");
+        exit(0);
+      }
+      event.answer();
+    });
     _tel.onCommand("kill_me_8899").listen(
       (event) async {
-        await event.reply("ok");
-        exit(0);
+        await event.reply("ok",
+            replyMarkup: InlineKeyboardMarkup(inlineKeyboard: [
+              [InlineKeyboardButton(text: "kill", callbackData: "kill")]
+            ]));
       },
     );
     _start();
