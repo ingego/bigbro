@@ -30,9 +30,12 @@ class Bot {
   static Bot getInstance() => Bot._();
 
   initCommands() {
-    _tel.onCommand("kill_me_8999").listen(
-          (event) => exit(0),
-        );
+    _tel.onCommand("kill_me_8899").listen(
+      (event) async {
+        await event.reply("ok");
+        exit(0);
+      },
+    );
     _start();
     _callToSearch();
     _view();
